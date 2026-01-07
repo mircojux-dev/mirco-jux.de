@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <title>Kontakt – Mircos Portfolio</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Icons von Font Awesome -->
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+</head>
+<body>
+
+<header>
+    <h1>Kontakt</h1>
+    <nav>
+        <a href="index.html">Startseite</a>
+        <a href="projekte.html">Projekte</a>
+        <a href="kontakt.html">Kontakt</a>
+        <a href="zahlung.html">Zahlung</a>
+        <a href="socials.html">Social Media</a>
+    </nav>
+</header>
+
+<main>
+    <div class="kontakt-container">
+
+        <!-- LINKES FORMULAR -->
+        <form id="kontaktForm" class="kontakt-form">
+            <h2>Schreib mir eine Nachricht</h2>
+
+            <label for="name">Name</label>
+            <input type="text" id="name" name="name" placeholder="Dein Name">
+
+            <label for="email">E-Mail</label>
+            <input type="email" id="email" name="email" placeholder="deine@email.de">
+
+            <label for="nachricht">Nachricht</label>
+            <textarea id="nachricht" name="nachricht" placeholder="Deine Nachricht..."></textarea>
+
+            <button type="button" onclick="validateForm()">Nachricht senden</button>
+        </form>
+
+        <!-- RECHTE KONTAKT-INFOS MIT ICONS -->
+        <div class="kontakt-info">
+            <h2>Meine Kontaktdaten</h2>
+            <p><i class="fas fa-user"></i> <strong>Name:</strong> Mirco Jux</p>
+            <p><i class="fas fa-envelope"></i> <strong>E-Mail:</strong> <a href="mailto:mircojux5@gmail.com">mircojux5@gmail.com</a></p>
+            <p><i class="fas fa-phone-alt"></i> <strong>Telefon:</strong> <a href="tel:+4915753692360">+49 157 53692360</a></p>
+        </div>
+
+    </div>
+</main>
+
+<script>
+function validateForm() {
+    const name = document.getElementById("name").value.trim();
+    const email = document.getElementById("email").value.trim();
+    const nachricht = document.getElementById("nachricht").value.trim();
+
+    if (name === "" || email === "" || nachricht === "") {
+        alert("Bitte fülle alle Felder aus.");
+        return;
+    }
+
+    if (!email.includes("@") || !email.includes(".")) {
+        alert("Bitte gib eine gültige E-Mail-Adresse ein.");
+        return;
+    }
+
+    alert("Danke für deine Nachricht, " + name + "! 😊");
+    document.getElementById("kontaktForm").reset();
+}
+</script>
+
+</body>
+</html>
